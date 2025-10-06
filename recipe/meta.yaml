@@ -42,8 +42,9 @@ requirements:
     - cython
     - setuptools >=62
     - setuptools_scm >=6.2
+    - numpy >=2
     - eigen >=3.3.7
-    - boost >=1.59
+    - libboost-python-devel >=1.59
     - doxygen
   run:
     - python
@@ -55,7 +56,7 @@ test:
     - pytest-xdist
     - make
     - cmake >=3.18
-    - boost >=1.59
+    - libboost-python-devel >=1.59
     - doxygen
     - sphinx >=3.0.4
   source_files:
