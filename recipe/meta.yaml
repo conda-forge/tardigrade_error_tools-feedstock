@@ -42,7 +42,6 @@ requirements:
     - cython
     - setuptools >=62
     - setuptools_scm >=6.2
-    - numpy >=2
     - eigen >=3.3.7
     - libboost-python-devel >=1.59
     - doxygen
