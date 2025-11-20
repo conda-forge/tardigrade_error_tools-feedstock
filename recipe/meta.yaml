@@ -32,7 +32,7 @@ requirements:
     - make
     - cmake >=3.18
   host:
-    - python {{ python_variants }}
+    - python {{ python }}
     - breathe >=4.3.0
     - sphinx >=3.0.4
     - sphinx_rtd_theme >=0.4.3
