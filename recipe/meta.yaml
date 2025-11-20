@@ -40,7 +40,6 @@ requirements:
     - python-build
     - pip
     - cython
-    - numpy >=2
     - setuptools >=62
     - setuptools_scm >=6.2
     - eigen >=3.3.7
