@@ -1,5 +1,5 @@
 {% set name = "tardigrade_error_tools" %}
-{% set version = "0.9.7" %}
+{% set version = "0.9.8" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/UCBoulder/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: af55feef37f99979c3ccfb20c2f563b5e10175cb7599264b441c9608fdb68652
+  sha256: 71d2d83523d68ae01f4bcda00fd6e77cb6de509ea871a0e73808ef2955ce1adf
 
 build:
-  number: 3
+  number: 0
   script_env:
     - SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
   script:
@@ -26,7 +26,6 @@ build:
 
 requirements:
   build:
-    - {{ compiler('c') }}
     - {{ stdlib('c') }}
     - {{ compiler('cxx') }}
     - make
