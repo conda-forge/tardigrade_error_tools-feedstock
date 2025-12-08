@@ -33,6 +33,7 @@ requirements:
     - {{ compiler('cxx') }}
     - make
     - cmake >=3.18
+    - doxygen
   host:
     - python {{ python }}
     - breathe >=4.3.0
