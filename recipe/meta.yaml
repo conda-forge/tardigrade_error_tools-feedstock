@@ -10,7 +10,7 @@ source:
   sha256: 71d2d83523d68ae01f4bcda00fd6e77cb6de509ea871a0e73808ef2955ce1adf
 
 build:
-  number: 0
+  number: 1
   script_env:
     - SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
   script:
@@ -26,10 +26,14 @@ build:
 
 requirements:
   build:
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - cython                                 # [build_platform != target_platform]
     - {{ stdlib('c') }}
     - {{ compiler('cxx') }}
     - make
     - cmake >=3.18
+    - doxygen
   host:
     - python {{ python }}
     - breathe >=4.3.0
