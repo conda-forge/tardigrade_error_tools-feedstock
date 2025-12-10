@@ -1,5 +1,5 @@
 {% set name = "tardigrade_error_tools" %}
-{% set version = "0.9.8" %}
+{% set version = "0.9.9" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/UCBoulder/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 71d2d83523d68ae01f4bcda00fd6e77cb6de509ea871a0e73808ef2955ce1adf
+  sha256: 6b9f76b87010bbae7cdfaf97f55f41a2710bb4f9d6d817afd10a01af92f5263a
 
 build:
-  number: 2
+  number: 0
   script_env:
     - SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
   script:
@@ -26,28 +26,30 @@ build:
 
 requirements:
   build:
-    - python                                 # [build_platform != target_platform]
+    - python
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - cython                                 # [build_platform != target_platform]
+    - cython
     - {{ stdlib('c') }}
     - {{ compiler('cxx') }}
     - make
-    - cmake >=3.18
-    - doxygen
-  host:
-    - python {{ python }}
+    - cmake >=3.30
     - breathe >=4.3.0
+    - clang-tools
+    - doxygen
+    - libboost-python-devel >=1.82
+    - pip
+    - python-build
+    - setuptools >=77
+    - setuptools_scm >=8
     - sphinx >=3.0.4
     - sphinx_rtd_theme >=0.4.3
     - sphinxcontrib-bibtex
-    - python-build
+  host:
+    - python {{ python }}
     - pip
     - cython
-    - setuptools >=62
-    - setuptools_scm >=6.2
-    - eigen >=3.3.7
-    - libboost-python-devel >=1.59
-    - doxygen
+    - setuptools >=77
+    - setuptools_scm >=8
   run:
     - python
 
@@ -57,8 +59,9 @@ test:
     - pytest
     - pytest-xdist
     - make
-    - cmake >=3.18
-    - libboost-python-devel >=1.59
+    - cmake >=3.30
+    - clang-tools
+    - libboost-python-devel >=1.82
     - doxygen
     - sphinx >=3.0.4
   source_files:
