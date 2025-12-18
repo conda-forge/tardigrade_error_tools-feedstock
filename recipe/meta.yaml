@@ -1,5 +1,5 @@
 {% set name = "tardigrade_error_tools" %}
-{% set version = "0.9.9" %}
+{% set version = "0.9.10" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/UCBoulder/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 6b9f76b87010bbae7cdfaf97f55f41a2710bb4f9d6d817afd10a01af92f5263a
+  sha256: 8742526ca4daf04629acba3a1572d7c12ab883f427e2e0631445e457ec5f76e1
 
 build:
   number: 0
