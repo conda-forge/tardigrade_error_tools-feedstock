@@ -10,7 +10,7 @@ source:
   sha256: 8742526ca4daf04629acba3a1572d7c12ab883f427e2e0631445e457ec5f76e1
 
 build:
-  number: 0
+  number: 1
   script_env:
     - SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
   script:
@@ -23,6 +23,8 @@ build:
     - $PYTHON -m pip install build/src/python/dist/$PKG_NAME-$PKG_VERSION.tar.gz --no-deps --ignore-installed -v --no-build-isolation
     - $PYTHON -m pip show $PKG_NAME
   skip: true  # [win]
+  run_exports:
+    - {{ pin_subpackage(name|lower, max_pin='x.x') }}
 
 requirements:
   build:
